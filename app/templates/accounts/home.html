@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ city }}{% endblock %}
+
+{% block content %}
+
+  <nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">Weather</a>
+    <form method="get">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search-bar">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+
+
+<div class="row d-flex justify-content-center py-5">
+
+
+  <div class="col-md-8 col-lg-6 col-xl-5">
+
+    <div class="card text-body" style=" border-radius: 35px;">
+      <div class="card-body p-4">
+
+        <div class="d-flex">
+          <h6 class="flex-grow-1"><i>{{ city }}</i></h6>
+          <h6 id="clock">{{ local_time }}</h6>
+        </div>
+
+        <div class="d-flex flex-column text-center mt-5 mb-4">
+          <h6 class="display-4 mb-0 font-weight-bold"> {{ temp_c }}°C </h6>
+          <span class="small" style="color: #868B94">{{ condition }}</span>
+        </div>
+
+        <div class="d-flex align-items-center">
+          <div class="flex-grow-1" style="font-size: 1rem;">
+            <div><i class="fas fa-wind fa-fw" style="color: #868B94;"></i> <span class="ms-1">Wind: <b>{{ wind }}</b> </span>
+            </div>
+            <div><i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1">Humidity:<b> {{ humidity }}</b></span></div>
+          </div>
+          <div>
+            <img src="{{ icon }}"
+              width="100px">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}
